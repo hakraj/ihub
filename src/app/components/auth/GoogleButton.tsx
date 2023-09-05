@@ -16,8 +16,8 @@ const GoogleButton = () => {
       onMouseLeave={() => setImageSrc("/google/btn_google_normal.svg")}
       src={imageSrc}
       alt={"Signin with google"}
-      width={191}
-      height={46}
+      width={199}
+      height={48}
     />
 
   )

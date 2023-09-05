@@ -21,7 +21,7 @@ const Login = () => {
   }, [router, session, status,]);
 
   return (
-    <Onboarding text="Welcome, Signin to continue">
+    <Onboarding text="Welcome, Sign in to continue">
 
       <EmailSignin />
 
