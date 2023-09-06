@@ -14,7 +14,10 @@ const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET
+      clientSecret: process.env.GOOGLE_SECRET,
+      httpOptions: {
+        timeout: 10000
+      }
     }),
     Email({
       server: {
@@ -31,9 +34,9 @@ const handler = NextAuth({
   pages: {
     signIn: "/auth/login/",
     signOut: "/auth/login/",
-    // error: '/auth/error', // Error code passed in query string as ?error=
+    error: '/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify/', // (used for check email message)
-    // newUser: '/auth/new-user'
+    newUser: '/auth/onboarding/'
   }
 
 })

@@ -14,7 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      if (session?.user?.name) {
+      if (session?.user?.email) {
         router.push('/');
       }
     }
