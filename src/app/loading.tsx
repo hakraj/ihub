@@ -1,9 +1,10 @@
+import styles from "./styles.module.css"
 
 
 const LoadingUI = () => {
   return (
-    <div className="onboarding-bg">
-      <main className="onboarding p-5 pb-12 flex flex-col justify-between min-h-screen">
+    <div className={`${styles.onboardingBg}`}>
+      <main className={`${styles.onboarding} p-5 pb-12 flex flex-col justify-between min-h-screen`}>
         <div className="m-auto">
           <svg className=" animate-pulse md:scale-125" width="114" height="91" viewBox="0 0 114 91" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.512 67V27.592H33.104V67H18.512ZM26 19.48C23.696 19.48 21.744 18.68 20.144 17.08C18.544 15.448 17.744 13.512 17.744 11.272C17.744 9.032 18.544 7.096 20.144 5.464C21.776 3.8 23.728 2.96799 26 2.96799C27.504 2.96799 28.88 3.352 30.128 4.12C31.376 4.856 32.384 5.848 33.152 7.096C33.92 8.344 34.304 9.736 34.304 11.272C34.304 13.512 33.488 15.448 31.856 17.08C30.224 18.68 28.272 19.48 26 19.48Z" fill="#FF0800" />

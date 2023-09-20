@@ -1,0 +1,47 @@
+.onboardingBg {
+  position: relative;
+}
+
+.onboardingBg:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: url(/loading/loading-bg.jpeg) no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+  
+}
+
+.onboarding {
+  position: relative;
+}
+
+@keyframes gradient {
+  0% {
+    background-image: linear-gradient(to right, #D7BFDC, #E4A0F7)  
+  }
+  20% {
+    background-image: linear-gradient(to right, #D7BFDC 48%, #E4A0F7 88%, #D7BFDC)  
+  }
+  40% {
+      background-image: linear-gradient(to right, #D7BFDC 36%, #E4A0F7 76%, #D7BFDC)  
+    }
+  60% {
+    background-image: linear-gradient(to right, #D7BFDC 24%, #E4A0F7 64%, #D7BFDC)  
+  }
+  80% {
+    background-image: linear-gradient(to right, #D7BFDC 12%, #E4A0F7 52%, #D7BFDC)  
+  }
+  100% {
+    background-image: linear-gradient(to left, #D7BFDC, #E4A0F7)  
+  }
+}
+
+.animateGradient {
+  animation: gradient 1.5s ease infinite alternate;
+}

@@ -1,24 +1,23 @@
-'use client'
+// import IsAuth from "./isAuth";
+import HomeCarousel from "./components/home/Carousel";
+import NavBar from "./components/NavigationBar";
+import Products from "./components/ProductsGrid";
+// import { signOut, useSession } from "next-auth/react";
 
-import Onboarding from "./components/auth/Onboarding";
-import { signOut, useSession } from "next-auth/react";
-import IsAuth from "./isAuth";
 
-
-const Verify = () => {
-  const { data: session, status } = useSession();
+const Home = () => {
+  // const { data: session, status } = useSession();
 
   return (
-    <IsAuth>
-      <Onboarding text="Your one stop for all need">
-        <p>signed in as {session && session?.user?.email}</p>
-        <button onClick={() => signOut()}
-          className="block w-full my-4 mt-8 p-4 text-center font-medium text-base text-white bg-[#8F00FF] rounded-lg">
-          Log out
-        </button>
-      </Onboarding>
-    </IsAuth>
+    // <IsAuth>
+    <main>
+      <NavBar />
+      <HomeCarousel />
+      <Products />
+    </main>
+    // </IsAuth>
   )
 };
 
-export default Verify;
+
+export default Home;
