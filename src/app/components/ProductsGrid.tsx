@@ -12,7 +12,7 @@ const Product = () => {
         <p className="text-sm md:text-base font-light">Product name</p>
         <p className="text-sm md:text-base font-medium mt-1">Price (range)</p>
 
-        <button className="block w-full mt-2 lg:mt-4 py-1 md:py-2 text-center font-medium text-base text-[#8F00FF] border border-[#8F00FF] hover:bg-[#8F00FF] hover:text-white rounded-lg">Add to cart</button>
+        <button className="block w-full mt-2 lg:mt-4 py-1 md:py-2 text-center text-base text-[#8F00FF] border border-[#8F00FF] hover:bg-[#8F00FF] hover:text-white rounded-lg">Add to cart</button>
       </div>
     </div>
   )
@@ -28,7 +28,7 @@ const Products = () => {
             <p className="text-[#AF69EE] italic mb-4">60% off on all orders</p>
           </div>
           <div>
-            <button className="block w-full py-1 px-2 md:px-4 text-center text-[#AF69EE] border border-[#AF69EE] hover:shadow hover:shadow-[#E4A0F7] rounded-2xl">see more</button>
+            <button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-xs md:text-sm lg:text-base text-[#E4A0F7] border border-[#E4A0F7] hover:shadow hover:shadow-[#E4A0F7] rounded-2xl">see more</button>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">

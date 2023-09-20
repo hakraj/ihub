@@ -4,7 +4,7 @@ import { Carousel, Typography, Button } from "../../mt";
 export default function HomeCarousel() {
   return (
     <div className="my-6 md:my-4 h-[400px] md:h-[640px]">
-      <Carousel autoplay loop className="rounded-xl">
+      <Carousel autoplay loop >
         <div className="relative h-full w-full">
           <img
             src="/hero-img/fashion.jpg"
