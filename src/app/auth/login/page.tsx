@@ -26,9 +26,9 @@ const Login = () => {
       <EmailSignin />
 
       <div className=" flex flex-row justify-around items-center">
-        <div className=" h-[1px] w-2/5 bg-slate-300"></div>
-        <p className=" text-slate-300 font-light text-sm">or</p>
-        <div className=" h-[1px] w-2/5 bg-slate-300"></div>
+        <div className=" h-[1px] w-2/5 bg-blue-gray-300"></div>
+        <p className=" text-blue-gray-300 font-light text-sm">or</p>
+        <div className=" h-[1px] w-2/5 bg-blue-gray-300"></div>
       </div>
 
       <GoogleButton />

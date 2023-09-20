@@ -25,9 +25,9 @@ const Verify = () => {
     <Onboarding text="Please verify your email">
       <div className="text-center">
         <Image className="mx-auto" src={"/auth/verify.jpg"} alt={"verify-vector-image"} width={192} height={192} priority />
-        <p className="font-medium text-sm text-slate-500">You&apos;re almost there! We sent a sign in link to your email address</p>
-        <p className="font-medium text-sm text-slate-500 my-4">You may need to check your spam folder</p>
-        <p className="font-bold text-xs text-slate-700">&copy; hak_raj</p>
+        <p className="font-medium text-sm text-blue-gray-500">You&apos;re almost there! We sent a sign in link to your email address</p>
+        <p className="font-medium text-sm text-blue-gray-500 my-4">You may need to check your spam folder</p>
+        <p className="font-bold text-xs text-blue-gray-700">&copy; hak_raj</p>
       </div>
     </Onboarding>
   )
