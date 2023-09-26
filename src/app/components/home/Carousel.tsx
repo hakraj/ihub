@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import { Carousel, Typography, Button } from "../../mt";
 
 export default function HomeCarousel() {
@@ -29,9 +30,9 @@ export default function HomeCarousel() {
                 Style redefined, confidence rewritten
               </Typography>
               <div className="flex justify-center gap-2">
-                <Button size="lg" color="white">
+                <Link href="/shop"><Button size="lg" color="white">
                   Explore
-                </Button>
+                </Button></Link>
               </div>
             </div>
           </div>
@@ -60,9 +61,9 @@ export default function HomeCarousel() {
                 Innovate your world, the tech way
               </Typography>
               <div className="flex justify-end gap-2">
-                <Button size="lg" color="white">
+                <Link href="/shop"><Button size="lg" color="white">
                   Explore
-                </Button>
+                </Button></Link>
               </div>
             </div>
           </div>
@@ -91,9 +92,9 @@ export default function HomeCarousel() {
                 Home sweet home, now sweeter
               </Typography>
               <div className="flex gap-2">
-                <Button size="lg" color="white">
+                <Link href="/shop"><Button size="lg" color="white">
                   Explore
-                </Button>
+                </Button></Link>
               </div>
             </div>
           </div>
@@ -122,9 +123,9 @@ export default function HomeCarousel() {
                 Elevate your game, sculpt your strength
               </Typography>
               <div className="flex justify-end gap-2">
-                <Button size="lg" color="white">
+                <Link href="/shop"><Button size="lg" color="white">
                   Explore
-                </Button>
+                </Button></Link>
               </div>
             </div>
           </div>
@@ -153,9 +154,9 @@ export default function HomeCarousel() {
                 Glow inside and out, naturally
               </Typography>
               <div className="flex justify-center gap-2">
-                <Button size="lg" color="white">
+                <Link href="/shop"><Button size="lg" color="white">
                   Explore
-                </Button>
+                </Button></Link>
               </div>
             </div>
           </div>
