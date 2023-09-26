@@ -45,3 +45,7 @@
 .animateGradient {
   animation: gradient 1.5s ease infinite alternate;
 }
+
+.link:hover+div {
+  width: 100%;
+}

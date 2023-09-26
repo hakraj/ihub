@@ -1,7 +1,9 @@
-import Image from "next/image";
-import styles from "../styles.module.css"
+'use client'
 
-const Product = () => {
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
+export const Product = () => {
   return (
     <div className="rounded-xl shadow-lg hover:shadow-[#E4A0F7] p-2 flex justify-between flex-col">
       <div className="w-full mb-2 lg:mb-4">
@@ -19,22 +21,90 @@ const Product = () => {
 };
 
 const Products = () => {
+  const [cols, setCols] = useState(4);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screen = window.innerWidth
+      switch (true) {
+        case screen >= 1280:
+          setCols(5)
+          break;
+        case screen >= 1024:
+          setCols(4)
+          break;
+        case screen >= 768:
+          setCols(3)
+          break;
+        default:
+          setCols(4);
+          setIsMobile(true);
+          break;
+      }
+    };
+
+    // Listen for changes in the media query
+    window.addEventListener('change', handleResize);
+
+    // Initial check on component mount
+    handleResize();
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('change', handleResize);
+    };
+  }, []);
+
+
   return (
     <div>
-      <div className="px-8 py-4 my-16">
+      <div className="px-6 md:px-8 py-4 my-16">
         <div className="w-full flex items-center justify-between">
           <div>
             <p className="font-medium text-xl md:text-2xl lg:text-3xl">Sales</p>
             <p className="text-[#AF69EE] italic mb-4">60% off on all orders</p>
           </div>
           <div>
-            <button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-xs md:text-sm lg:text-base text-[#E4A0F7] border border-[#E4A0F7] hover:shadow hover:shadow-[#E4A0F7] rounded-2xl">see more</button>
+            <button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-sm lg:text-base border border-black hover:shadow rounded-2xl">see more</button>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-          {new Array(6).fill('product').map((_, i) => <Product key={i} />)}
+          {new Array(cols).fill('product').map((_, i) => <Product key={i} />)}
         </div>
       </div>
+      <div className="px-6 md:px-8 py-4 my-16">
+        <div className="w-full flex items-center justify-between">
+          <div>
+            <p className="font-medium text-xl md:text-2xl lg:text-3xl">Promo</p>
+            <p className="text-[#AF69EE] italic mb-4">Buy two get one free</p>
+          </div>
+          <div>
+            <button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-sm lg:text-base border border-black hover:shadow rounded-2xl">see more</button>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
+          {new Array(cols).fill('product').map((_, i) => <Product key={i} />)}
+        </div>
+      </div>
+      <div className="px-6 md:px-8 py-4 my-16">
+        <div className="w-full flex items-center justify-between mb-4">
+          <div>
+            <p className="font-medium text-xl md:text-2xl lg:text-3xl">Featured</p>
+            {/* <p className="text-[#AF69EE] italic mb-4"></p> */}
+          </div>
+          <div>
+            <button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-sm lg:text-base border border-black hover:shadow rounded-2xl">see more</button>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
+          {new Array(isMobile ? 10 : cols * 5).fill('product').map((_, i) => <Product key={i} />)}
+        </div>
+        <div className="mt-8 text-center">
+          <button className="py-2 px-4 text-center text-base text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-3xl">view all products</button>
+        </div>
+      </div>
+
     </div>
   )
 };

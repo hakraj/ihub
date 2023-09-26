@@ -12,7 +12,7 @@ export default function HomeCarousel() {
             alt="image 1"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
             <div className="w-3/4 text-center md:w-2/4">
               <Typography
                 variant="h1"
@@ -32,9 +32,6 @@ export default function HomeCarousel() {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
               </div>
             </div>
           </div>
@@ -46,7 +43,7 @@ export default function HomeCarousel() {
             alt="image 2"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 grid h-full w-full items-center place-items-end bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full items-center place-items-end bg-black/50">
             <div className="w-3/4 text-right pr-14 md:w-2/4 md:pr-20 lg:pr-32">
               <Typography
                 variant="h1"
@@ -66,9 +63,6 @@ export default function HomeCarousel() {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
               </div>
             </div>
           </div>
@@ -80,7 +74,7 @@ export default function HomeCarousel() {
             alt="image 3"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full items-center bg-black/50">
             <div className="w-3/4 pl-14 md:w-2/4 md:pl-20 lg:pl-32">
               <Typography
                 variant="h1"
@@ -100,9 +94,6 @@ export default function HomeCarousel() {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
               </div>
             </div>
           </div>
@@ -114,7 +105,7 @@ export default function HomeCarousel() {
             alt="image 4"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 grid h-full w-full items-center place-items-end bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full items-center place-items-end bg-black/50">
             <div className="w-3/4 text-right pr-14 md:w-2/4 md:pr-20 lg:pr-32">
               <Typography
                 variant="h1"
@@ -134,9 +125,6 @@ export default function HomeCarousel() {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
               </div>
             </div>
           </div>
@@ -148,7 +136,7 @@ export default function HomeCarousel() {
             alt="image 1"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
             <div className="w-3/4 text-center md:w-2/4">
               <Typography
                 variant="h1"
@@ -167,9 +155,6 @@ export default function HomeCarousel() {
               <div className="flex justify-center gap-2">
                 <Button size="lg" color="white">
                   Explore
-                </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
                 </Button>
               </div>
             </div>
