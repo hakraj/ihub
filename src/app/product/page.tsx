@@ -10,7 +10,7 @@ const ProductPage = () => {
 
   return (
     <main>
-      <div className="collapse lg:visible">
+      <div className="hidden lg:block">
         <NavBar />
       </div>
       <div className="lg:grid lg:px-[10%] lg:pt-16 grid-cols-2 lg:gap-8">
@@ -84,7 +84,7 @@ const ProductPage = () => {
             </div>
           </div>
           <hr className="text-[#D7BFDC] h-[2px] w-full my-4" />
-          <div className="lg:collapse">
+          <div className="lg:hidden">
             <div className="py-4 my-16">
               <div className="w-full flex items-center justify-between mb-4">
                 <div>
@@ -117,7 +117,7 @@ const ProductPage = () => {
 
         </div>
       </div>
-      <div className="collapse lg:visible px-[10%] py-4 my-16">
+      <div className="hidden lg:block px-[10%] py-4 my-16">
         <div className="w-full flex items-center justify-between mb-4">
           <div>
             <p className="font-medium text-xl md:text-2xl lg:text-3xl">Similar</p>
@@ -131,7 +131,7 @@ const ProductPage = () => {
           {new Array(4).fill('product').map((_, i) => <Product key={i} />)}
         </div>
       </div>
-      <div className="collapse lg:visible">
+      <div className="hidden lg:block">
         <Footer />
       </div>
     </main>
