@@ -483,10 +483,10 @@ const products = [
 ]
 
 export const shuffleArray = (array: any[]) => {
-  return array.map((item, index, arr) => {
+  return array.map((product, index, arr) => {
     const randomIndex = Math.floor(Math.random() * (index + 1));
     [arr[index], arr[randomIndex]] = [arr[randomIndex], arr[index]];
-    return item;
+    return product;
   });
 }
 
