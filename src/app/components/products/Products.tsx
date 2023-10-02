@@ -1,5 +1,5 @@
 import Link from "next/link";
-import products, { shuffleArray } from "@/app/products";
+import products, { shuffleArray } from "@lib/products";
 import Product from "./Product";
 
 const Products = (

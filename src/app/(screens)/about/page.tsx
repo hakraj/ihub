@@ -7,7 +7,7 @@ import Pitch from "../../components/Pitch";
 const AboutPage = () => {
   return (
     <main>
-      <NavBar />
+      <NavBar page="about" />
       <div className="px-[10%] py-4 my-8 md:my-16">
         <div className="my-8 lg:w-3/5">
           <p className="font-medium text-2xl md:text-3xl lg:text-4xl mb-4">Welcome to ihub - Your one stop for all needs</p>

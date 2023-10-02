@@ -13,7 +13,7 @@ const Home = () => {
   return (
     // <IsAuth>
     <main>
-      <NavBar />
+      <NavBar page="home" />
       <HomeCarousel />
       <HomeGrid />
       <Pitch />

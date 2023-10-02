@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "../../styles.module.css";
 import SearchBar from "./SearchBar";
 
-const DesktopBar = () => {
+const DesktopBar = ({ page }: { page?: string }) => {
   return (
     <div>
       <div className="pt-4 px-6 md:px-8 w-full flex items-center justify-between">
@@ -14,14 +14,32 @@ const DesktopBar = () => {
         <div className="flex gap-4 items-center justify-between">
           <div>
             <Link href={"/"}>
-              <span className="cursor-pointer">home</span>
-              <div className={`w-full h-[2px] ${styles.animateGradient}`} ></div>
+              {page === "home" ?
+                <>
+                  <span className="cursor-pointer">home</span>
+                  <div className={`w-full h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+                :
+                <>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>home</span>
+                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+              }
             </Link>
           </div>
           <div>
             <Link href={"/shop"}>
-              <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>shop</span>
-              <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+              {page === "shop" ?
+                <>
+                  <span className="cursor-pointer">shop</span>
+                  <div className={`w-full h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+                :
+                <>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>shop</span>
+                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+              }
             </Link>
           </div>
           <div>
@@ -32,14 +50,32 @@ const DesktopBar = () => {
           </div>
           <div>
             <Link href={"/about"}>
-              <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>about</span>
-              <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+              {page === "about" ?
+                <>
+                  <span className="cursor-pointer">about</span>
+                  <div className={`w-full h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+                :
+                <>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>about</span>
+                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+              }
             </Link>
           </div>
           <div>
             <Link href={"/contact"}>
-              <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>contact</span>
-              <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+              {page === "contact" ?
+                <>
+                  <span className="cursor-pointer">contact</span>
+                  <div className={`w-full h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+                :
+                <>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>contact</span>
+                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                </>
+              }
             </Link>
           </div>
         </div>

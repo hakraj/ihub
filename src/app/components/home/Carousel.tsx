@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { Carousel, Typography, Button } from "../../mt";
+import { Carousel, Typography, Button } from "../../../../utils/mt";
 
 export default function HomeCarousel() {
   return (
@@ -161,7 +161,6 @@ export default function HomeCarousel() {
             </div>
           </div>
         </div>
-
       </Carousel>
     </div>
   );

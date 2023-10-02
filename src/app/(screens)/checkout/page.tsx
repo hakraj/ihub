@@ -1,7 +1,7 @@
 'use client'
 
 import styles from "../../styles.module.css"
-import products from "@/app/products";
+import products from "@lib/products";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/navigation/NavigationBar";
 import { useRouter } from "next/navigation";

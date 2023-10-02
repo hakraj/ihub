@@ -6,8 +6,8 @@ import Products from "@/app/components/products/Products";
 const Shop = () => {
   return (
     <main>
-      <NavBar />
-      <Products name={"All"} cols={10} />
+      <NavBar page="shop" />
+      <Products name={"All"} cols={40} />
       <Footer />
     </main>
   );

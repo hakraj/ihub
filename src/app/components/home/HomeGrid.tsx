@@ -46,7 +46,7 @@ const HomeGrid = () => {
     <div>
       <Sales name={"Sales"} deal={"60% off on all orders"} cols={cols} />
       <Sales name={"Promo"} deal={"Buy two get one free"} cols={cols} />
-      <Products name={"Featured"} cols={isMobile ? 10 : (cols * 5)} />
+      <Products name={"Featured"} cols={isMobile ? 10 : (cols * 4)} />
       <div className="text-center">
         <Link href="/shop"><button className="py-2 px-4 text-center text-base text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-3xl">view all products</button></Link>
       </div>

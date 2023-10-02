@@ -6,7 +6,7 @@ const Product = ({ id, title, price }: { id: number, title: string, price: strin
     <Link href={`/product/${id}`}>
       <div className="rounded-xl shadow-lg hover:shadow-[#E4A0F7] p-2 flex justify-between flex-col">
         <div className="relative w-full h-[192px] sm:h-[256px] mb-2 lg:mb-4">
-          <img className="h-full w-full object-cover rounded-lg" src={`/tinified/${id}.jpg`} alt="qoute-tet-img" />
+          <img loading="lazy" className="h-full w-full object-cover rounded-lg" src={`/tinified-min/${id}-min.jpg`} alt="qoute-tet-img" />
         </div>
         <div>
           <p className="text-sm md:text-base font-light">{title && title.length > 32 ? title.substring(0, 27) + " ..." : title}</p>

@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import Image from "next/image";
 import styles from "../../../styles.module.css"
-import products from "@/app/products";
+import products from "@lib/products";
 import Footer from "../../../components/Footer";
 import NavBar from "../../../components/navigation/NavigationBar";
 import { useRouter } from "next/navigation";
@@ -23,7 +24,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
       <div className="lg:grid lg:px-[10%] lg:pt-16 grid-cols-2 lg:gap-8">
         <div>
           <div className="relative w-full h-[256px] lg:h-[384px] mb-8 lg:mb-16">
-            <Image className="h-full w-full object-cover lg:rounded-lg" src={`/tinified/${prod[0].id}.jpg`} alt="qoute-tet-img" priority height={1000} width={1000} />
+            <img className="h-full w-full object-cover lg:rounded-lg" src={`/tinified-min/${prod[0].id}-min.jpg`} alt="qoute-tet-img" fetchPriority="high" />
             <div className="px-6 md:px-8 py-4 flex-1 absolute w-full top-0 right-0">
               <div className="flex items-center justify-between">
                 <div onClick={() => router.back()} className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
@@ -91,7 +92,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
           </div>
           <hr className="text-[#D7BFDC] h-[2px] w-full my-4" />
           <div className="lg:hidden">
-            <Similar />
+            <Similar category={prod[0].category} />
             <p className='text-xs text-center text-black font-mono'>All rights reserved. &copy; hak_raj {year}</p>
           </div>
           <div className="px-6 md:px-8 pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
@@ -111,7 +112,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
         </div>
       </div>
       <div className={`${styles.hidelg} px-[10%] `}>
-        <Similar />
+        <Similar category={prod[0].category} />
       </div>
       <div className={`${styles.hidelg}`}>
         <Footer />

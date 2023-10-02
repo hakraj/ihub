@@ -5,7 +5,7 @@ import MobileBar from "./MobileBar";
 import DesktopBar from "./DesktopBar";
 
 
-const NavBar = () => {
+const NavBar = ({ page }: { page?: string }) => {
   const [isMobile, setIsMobile] = useState(true);
 
 
@@ -31,7 +31,7 @@ const NavBar = () => {
 
   return (
     <>
-      {isMobile ? <MobileBar /> : <DesktopBar />}
+      {isMobile ? <MobileBar /> : <DesktopBar page={page} />}
     </>
   )
 };
