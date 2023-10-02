@@ -1,13 +1,14 @@
-import Footer from "../components/Footer";
-import NavBar from "../components/NavigationBar";
-import Pitch from "../components/Pitch";
+import Link from "next/link";
+import Footer from "../../components/Footer";
+import NavBar from "../../components/navigation/NavigationBar";
+import Pitch from "../../components/Pitch";
 
 
 const AboutPage = () => {
   return (
     <main>
       <NavBar />
-      <div className="px-[10%] md:px-[20%] lg:px-[10%] py-4 my-8 md:my-16">
+      <div className="px-[10%] py-4 my-8 md:my-16">
         <div className="my-8 lg:w-3/5">
           <p className="font-medium text-2xl md:text-3xl lg:text-4xl mb-4">Welcome to ihub - Your one stop for all needs</p>
           <p className="font-light">At ihub, we&apos;re more than just an e-commerce platform; we&apos;re your partner in finding the perfect products that suit your lifestyle. Our journey began with a simple vision to create a shopping experience that&apos;s not only convenient but also enjoyable.</p>
@@ -29,9 +30,8 @@ const AboutPage = () => {
         </div>
         <div className="my-8 lg:w-3/5">
           <p className="font-medium text-xl md:text-2xl lg:text-3xl mb-2">Contact us</p>
-          <p className="font-light">Have a question or feedback? we&apos;d love to hear from you! Feel free to reach out to our friendly support team through our Contact Page</p>
+          <p className="font-light">Have a question or feedback? we&apos;d love to hear from you! Feel free to reach out to our friendly support team through our <Link className="text-[#8F00FF]" href={"/contact"}>Contact Page</Link>.</p>
         </div>
-
       </div>
       <Footer />
     </main>

@@ -1,9 +1,9 @@
 // import IsAuth from "./isAuth";
 import HomeCarousel from "./components/home/Carousel";
-import NavBar from "./components/NavigationBar";
+import NavBar from "./components/navigation/NavigationBar";
 import Footer from "./components/Footer";
 import Pitch from "./components/Pitch";
-import Products from "./components/ProductsGrid";
+import HomeGrid from "./components/home/HomeGrid";
 // import { signOut, useSession } from "next-auth/react";
 
 
@@ -15,7 +15,7 @@ const Home = () => {
     <main>
       <NavBar />
       <HomeCarousel />
-      <Products />
+      <HomeGrid />
       <Pitch />
       <Footer />
     </main>

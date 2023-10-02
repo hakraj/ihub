@@ -49,3 +49,13 @@
 .link:hover+div {
   width: 100%;
 }
+
+.hidelg {
+  display: none;
+}
+
+@media only screen and (min-width: 960px) {
+  .hidelg {
+    display: block;
+  }
+}

@@ -1,8 +1,7 @@
+import { year } from "../layout";
 import styles from "../styles.module.css"
 
 const Footer = () => {
-  const year = new Date().getFullYear();
-
   return (
     <div className={`${styles.onboardingBg}`}>
       <div className={`${styles.onboarding} px-8 md:px-16 py-16 md:flex flex-wrap justify-between min-h-[15vh] mt-[20vh] bg-black/75 text-white`}>
@@ -33,8 +32,8 @@ const Footer = () => {
                 <p className="my-2 text-sm font-light text-violet-300">fashion</p>
                 <p className="my-2 text-sm font-light text-violet-300">tech</p>
                 <p className="my-2 text-sm font-light text-violet-300">home</p>
-                <p className="my-2 text-sm font-light text-violet-300">sports</p>
                 <p className="my-2 text-sm font-light text-violet-300">health</p>
+                <p className="my-2 text-sm font-light text-violet-300">others</p>
               </div>
               <div>
                 <div className="text-xl font-bold">my store</div>

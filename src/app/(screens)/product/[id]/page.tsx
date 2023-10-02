@@ -1,25 +1,32 @@
+'use client'
+
 import Image from "next/image";
-import { Product } from "../components/ProductsGrid";
-import Footer from "../components/Footer";
-import NavBar from "../components/NavigationBar";
-import Link from "next/link";
+import styles from "../../../styles.module.css"
+import products from "@/app/products";
+import Footer from "../../../components/Footer";
+import NavBar from "../../../components/navigation/NavigationBar";
+import { useRouter } from "next/navigation";
+import Similar from "@/app/components/products/Similar";
+import { year } from "@/app/layout";
 
 
-const ProductPage = () => {
-  const year = new Date().getFullYear();
+const ProductPage = ({ params }: { params: { id: string } }) => {
+  const router = useRouter()
+
+  const prod = products.filter((product) => `${product.id}` === params.id)
 
   return (
     <main>
-      <div className="hidden lg:block">
+      <div className={`${styles.hidelg}`}>
         <NavBar />
       </div>
       <div className="lg:grid lg:px-[10%] lg:pt-16 grid-cols-2 lg:gap-8">
         <div>
-          <div className="relative w-full h-[256px] lg:h-[320px] mb-8 lg:mb-16">
-            <Image className="h-full w-full object-cover lg:rounded-lg" src="/product/quote.jpg" alt="qoute-tet-img" priority height={1000} width={1000} />
+          <div className="relative w-full h-[256px] lg:h-[384px] mb-8 lg:mb-16">
+            <Image className="h-full w-full object-cover lg:rounded-lg" src={`/tinified/${prod[0].id}.jpg`} alt="qoute-tet-img" priority height={1000} width={1000} />
             <div className="px-6 md:px-8 py-4 flex-1 absolute w-full top-0 right-0">
               <div className="flex items-center justify-between">
-                <div className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
+                <div onClick={() => router.back()} className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                   </svg>
@@ -37,15 +44,14 @@ const ProductPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                     </svg>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
           <div className="px-6 md:px-8 lg:mb-24">
             <div>
-              <p className=" text-2xl font-light">Product name</p>
-              <p className=" text-xl font-medium my-1">Price (range)</p>
+              <p className=" text-2xl font-light">{prod[0].title}</p>
+              <p className=" text-xl font-medium my-1">₦{prod[0].price}</p>
               <div>
                 <svg width="80" height="17" viewBox="0 0 80 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.09977 2.64252C7.46386 1.88974 8.53614 1.88974 8.90023 2.64252L10.0896 5.10155C10.2353 5.40292 10.5222 5.61136 10.8539 5.65686L13.5601 6.02811C14.3885 6.14176 14.7199 7.16155 14.1165 7.74045L12.1453 9.63146C11.9037 9.86322 11.7942 10.2005 11.8534 10.53L12.3366 13.2184C12.4845 14.0415 11.617 14.6717 10.8799 14.2767L8.47238 12.9864C8.17731 12.8283 7.82269 12.8283 7.52762 12.9864L5.12005 14.2767C4.38302 14.6717 3.51553 14.0415 3.66344 13.2184L4.14662 10.53C4.20584 10.2005 4.09626 9.86322 3.85468 9.63146L1.88354 7.74045C1.28011 7.16155 1.61146 6.14176 2.43991 6.02811L5.14611 5.65686C5.47777 5.61136 5.76466 5.40292 5.91043 5.10155L7.09977 2.64252Z" fill="#FFCF2B" />
@@ -64,7 +70,7 @@ const ProductPage = () => {
           <div>
             <div className="my-4">
               <p className="font-medium my-1">Description: </p>
-              <p className="font-light">Your ultimate shopping destination. Discover, shop, and experience a world of quality products and unbeatable deals, all in one place.</p>
+              <p className="font-light">{prod[0].description}</p>
             </div>
             <div className="my-4">
               <p className="font-medium my-1">Tags: </p>
@@ -85,25 +91,12 @@ const ProductPage = () => {
           </div>
           <hr className="text-[#D7BFDC] h-[2px] w-full my-4" />
           <div className="lg:hidden">
-            <div className="py-4 my-16">
-              <div className="w-full flex items-center justify-between mb-4">
-                <div>
-                  <p className="font-medium text-xl md:text-2xl lg:text-3xl">Similar</p>
-                  {/* <p className="text-[#AF69EE] italic mb-4"></p> */}
-                </div>
-                <div>
-                  <Link href="/shop"><button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-sm lg:text-base border border-black hover:shadow rounded-2xl">see more</button></Link>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-                {new Array(4).fill('product').map((_, i) => <Product key={i} />)}
-              </div>
-            </div>
+            <Similar />
             <p className='text-xs text-center text-black font-mono'>All rights reserved. &copy; hak_raj {year}</p>
           </div>
           <div className="px-6 md:px-8 pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
             <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-4 lg:gap-8">
               <div className="flex flex-1 items-center justify-between">
                 <button className="w-8 h-8 rounded-lg border border-[#D7BFDC] text-xl text-[#D7BFDC]">-</button>
                 <p className=" font-medium">5</p>
@@ -117,21 +110,10 @@ const ProductPage = () => {
 
         </div>
       </div>
-      <div className="hidden lg:block px-[10%] py-4 my-16">
-        <div className="w-full flex items-center justify-between mb-4">
-          <div>
-            <p className="font-medium text-xl md:text-2xl lg:text-3xl">Similar</p>
-            {/* <p className="text-[#AF69EE] italic mb-4"></p> */}
-          </div>
-          <div>
-            <button className="block w-full py-[2px] md:py-1 px-2 md:px-4 text-center text-sm lg:text-base border border-black hover:shadow rounded-2xl">see more</button>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-          {new Array(4).fill('product').map((_, i) => <Product key={i} />)}
-        </div>
+      <div className={`${styles.hidelg} px-[10%] `}>
+        <Similar />
       </div>
-      <div className="hidden lg:block">
+      <div className={`${styles.hidelg}`}>
         <Footer />
       </div>
     </main>

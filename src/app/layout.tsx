@@ -1,13 +1,16 @@
 import AuthContext from './auth_context'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const openSans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Ihub - Your one stop for all needs',
   description: 'Your Ultimate Shopping Destination. Discover, Shop, and Experience a World of Quality Products and Unbeatable Deals, All in One Place.',
 }
+
+export const year = new Date().getFullYear();
+
 
 export default function RootLayout({
   children,
@@ -17,7 +20,7 @@ export default function RootLayout({
   return (
     <AuthContext>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={openSans.className}>{children}</body>
       </html>
     </AuthContext>
   )
