@@ -4,7 +4,7 @@ import { Open_Sans } from 'next/font/google'
 
 const openSans = Open_Sans({ subsets: ['latin'] })
 
-export const metadata = {
+const metadata = {
   title: 'Ihub - Your one stop for all needs',
   description: 'Your Ultimate Shopping Destination. Discover, Shop, and Experience a World of Quality Products and Unbeatable Deals, All in One Place.',
 }
