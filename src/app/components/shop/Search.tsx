@@ -1,6 +1,7 @@
 'use client'
 
 import { useSearchParams } from "next/navigation";
+import Image from "next/image";
 import products, { shuffleArray } from "@lib/products";
 import Product from "../products/Product";
 
@@ -9,7 +10,7 @@ const Search = () => {
   const search = searchParams.get('search')
 
   const filterProducts = () => {
-    if (search === null || undefined) {
+    if (search === null || undefined || "") {
       return []
     }
 
@@ -44,10 +45,11 @@ const Search = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-          {prod ?
+          {prod.length > 0 ?
             shuffleProducts.slice(-prod.length).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)
             :
             <div className="m-auto">
+              <Image className="mx-auto" src={"/auth/not-found.jpg"} alt={"not-found-vector-image"} width={192} height={192} priority />
               <h1>Your &quot;{search}&quot; did not match any products.</h1>
             </div>
           }
