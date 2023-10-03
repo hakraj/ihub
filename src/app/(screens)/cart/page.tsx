@@ -34,15 +34,25 @@ const Checkout = () => {
             </div>
             <hr className="text-[#D7BFDC] h-[2px] w-full my-2" />
           </div>
-          <div className="px-6 md:px-8 w-full pb-24 lg:pt-8 lg:pb-32 lg:grid grid-cols-2 lg:gap-8">
-            {cart.map(({ productId, quantity, checked }) => <CheckoutProduct id={productId} key={productId} quantity={quantity} checked={checked} />)}
-          </div>
-          <div className="pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
-            <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
-            <div className="px-6 md:px-8 lg:px-[10%]">
-              <button className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Checkout</button>
+          {cart.length === 0 ?
+            <div className="m-auto my-16">
+              {/* <Image className="mx-auto" src={"/auth/not-found.jpg"} alt={"not-found-vector-image"} width={192} height={192} priority /> */}
+              <h1 className=" text-center">No items have been added to cart.</h1>
+              <button onClick={() => router.push("/shop")} className="block w-1/2 mx-auto my-4 py-3 text-center text-xl font-medium text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Explore Products</button>
             </div>
-          </div>
+            :
+            <>
+              <div className="px-6 md:px-8 w-full pb-24 lg:pt-8 lg:pb-32 lg:grid grid-cols-2 lg:gap-8">
+                {cart.map(({ productId, quantity, checked }) => <CheckoutProduct id={productId} key={productId} quantity={quantity} checked={checked} />)}
+              </div>
+              <div className="pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
+                <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
+                <div className="px-6 md:px-8 lg:px-[10%]">
+                  <button className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Checkout</button>
+                </div>
+              </div>
+            </>
+          }
         </div>
       </div>
       <div className={`${styles.hidelg}`}>

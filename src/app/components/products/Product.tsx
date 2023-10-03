@@ -1,12 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import useCartStore from '../../store/cart';
+import { MouseEventHandler } from "react";
 
 
 const Product = ({ id, title, price }: { id: number, title: string, price: string }) => {
   const addProduct = useCartStore((state) => state.addProduct);
 
-  const addToCart = () => {
+  const addToCart: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation();
+
     addProduct({
       productId: id,
       quantity: 1,
