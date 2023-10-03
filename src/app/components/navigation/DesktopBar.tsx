@@ -44,7 +44,7 @@ const DesktopBar = ({ page }: { page?: string }) => {
           </div>
           <div>
             <Link href={"/"}>
-              <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>my store</span>
+              <span className={`${styles.link} cursor-pointer text-gray-600 `}>my store</span>
               <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
             </Link>
           </div>

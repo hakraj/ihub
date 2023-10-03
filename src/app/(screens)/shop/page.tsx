@@ -1,13 +1,14 @@
 import Footer from "../../components/Footer";
 import NavBar from "../../components/navigation/NavigationBar";
-import Products from "@/app/components/products/Products";
+import StoreFront from "@/app/components/shop/StoreFront";
 
 
 const Shop = () => {
+
   return (
     <main>
       <NavBar page="shop" />
-      <Products name={"All"} cols={40} />
+      <StoreFront />
       <Footer />
     </main>
   );

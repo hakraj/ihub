@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import Image from "next/image";
+import Link from "next/link";
 import styles from "../../../styles.module.css"
 import products from "@lib/products";
 import Footer from "../../../components/Footer";
@@ -33,12 +33,13 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
                   </svg>
                 </div>
                 <div className="flex items-center gap-4 justify-between">
-                  <div className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
-                    </svg>
-                  </div>
+                  <Link href="/">
+                    <div className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                      </svg>
+                    </div>
+                  </Link>
                   <div className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
@@ -97,7 +98,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
           </div>
           <div className="px-6 md:px-8 pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
             <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
-            <div className="flex items-center justify-between gap-4 lg:gap-8">
+            <div className="flex items-center justify-between gap-4 xl:gap-8">
               <div className="flex flex-1 items-center justify-between">
                 <button className="w-8 h-8 rounded-lg border border-[#D7BFDC] text-xl text-[#D7BFDC]">-</button>
                 <p className=" font-medium">5</p>

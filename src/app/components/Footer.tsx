@@ -32,7 +32,7 @@ const Footer = () => {
                 <p className="my-2 text-sm font-light text-violet-300">fashion</p>
                 <p className="my-2 text-sm font-light text-violet-300">tech</p>
                 <p className="my-2 text-sm font-light text-violet-300">home</p>
-                <p className="my-2 text-sm font-light text-violet-300">health</p>
+                <p className="my-2 text-sm font-light text-violet-300">beauty</p>
                 <p className="my-2 text-sm font-light text-violet-300">others</p>
               </div>
               <div>
