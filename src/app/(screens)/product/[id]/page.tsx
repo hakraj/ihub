@@ -7,12 +7,24 @@ import products from "@lib/products";
 import Footer from "../../../components/Footer";
 import NavBar from "../../../components/navigation/NavigationBar";
 import { useRouter } from "next/navigation";
+import useCartStore from '../../../store/cart';
 import Similar from "@/app/components/products/Similar";
 import { year } from "@/app/layout";
+import { useState } from "react";
 
 
 const ProductPage = ({ params }: { params: { id: string } }) => {
-  const router = useRouter()
+  const addProduct = useCartStore((state) => state.addProduct);
+  const router = useRouter();
+  const [quantity, setQuantity] = useState<number>(1)
+
+  const addToCart = () => {
+    addProduct({
+      productId: Number(params.id),
+      quantity: quantity,
+      checked: true
+    })
+  }
 
   const prod = products.filter((product) => `${product.id}` === params.id)
 
@@ -100,12 +112,20 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
             <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
             <div className="flex items-center justify-between gap-4 xl:gap-8">
               <div className="flex flex-1 items-center justify-between">
-                <button className="w-8 h-8 rounded-lg border border-[#D7BFDC] text-xl text-[#D7BFDC]">-</button>
+                <button
+                  onClick={() => {
+                    if (quantity > 1) {
+                      setQuantity(prev => prev--)
+                    } else {
+                      setQuantity(1)
+                    }
+                  }}
+                  className="w-8 h-8 rounded-lg border border-[#D7BFDC] text-xl text-[#D7BFDC]">-</button>
                 <p className=" font-medium">5</p>
-                <button className="w-8 h-8 rounded-lg border border-[#8F00FF] text-xl text-[#8F00FF]">+</button>
+                <button onClick={() => { setQuantity(prev => prev++) }} className="w-8 h-8 rounded-lg border border-[#8F00FF] text-xl text-[#8F00FF]">+</button>
               </div>
               <div className="w-2/3">
-                <button className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Add to cart</button>
+                <button onClick={addToCart} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Add to cart</button>
               </div>
             </div>
           </div>

@@ -1,15 +1,16 @@
 'use client'
 
 import styles from "../../styles.module.css"
-import products from "@lib/products";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/navigation/NavigationBar";
-import { useRouter } from "next/navigation";
 import CheckoutProduct from "@/app/components/products/CheckoutProduct";
+import { useRouter } from "next/navigation";
+import useCartStore from '../../store/cart';
 
 
 const Checkout = () => {
   const router = useRouter();
+  const cart = useCartStore((state) => state.cart);
 
   return (
     <main>
@@ -34,7 +35,7 @@ const Checkout = () => {
             <hr className="text-[#D7BFDC] h-[2px] w-full my-2" />
           </div>
           <div className="px-6 md:px-8 w-full pb-24 lg:pt-8 lg:pb-32 lg:grid grid-cols-2 lg:gap-8">
-            {products.slice(-4).map(({ id, title, price }) => <CheckoutProduct id={id} key={id} title={title} price={price} />)}
+            {cart.map(({ productId, quantity, checked }) => <CheckoutProduct id={productId} key={productId} quantity={quantity} checked={checked} />)}
           </div>
           <div className="pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
             <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />

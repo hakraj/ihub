@@ -44,16 +44,16 @@ const Search = () => {
             <p className="text-sm lg:text-base">Latest</p>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-          {prod.length > 0 ?
-            shuffleProducts.slice(-prod.length).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)
-            :
-            <div className="m-auto">
-              <Image className="mx-auto" src={"/auth/not-found.jpg"} alt={"not-found-vector-image"} width={192} height={192} priority />
-              <h1>Your &quot;{search}&quot; did not match any products.</h1>
-            </div>
-          }
-        </div>
+        {prod.length > 0 ?
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
+            {shuffleProducts.slice(-prod.length).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)}
+          </div>
+          :
+          <div className="m-auto">
+            <Image className="mx-auto" src={"/auth/not-found.jpg"} alt={"not-found-vector-image"} width={192} height={192} priority />
+            <h1 className=" text-center">Your &quot;{search}&quot; did not match any products.</h1>
+          </div>
+        }
       </div>
     </>
   )
