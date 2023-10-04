@@ -12,13 +12,16 @@ const Detail = ({ id, quantity }: { id: number, quantity: number }) => {
   const prod = products.filter((product) => product.id === id)
   const { title, price } = prod[0];
 
+  const priceNumber = parseInt(price.replace(/,/g, ''), 10);
+  const cost = (priceNumber * quantity).toLocaleString()
+
   return (
     <div className=" flex items-center justify-between my-2">
       <div>
         <p>{title && title.length > 24 ? title.substring(0, 20) + " ..." : title}{"  x"}{quantity}</p>
       </div>
       <div>
-        <p>₦{price}</p>
+        <p>₦{cost}</p>
       </div>
     </div>
   );
@@ -75,7 +78,7 @@ const Checkout = () => {
                       <p>Sub total</p>
                     </div>
                     <div>
-                      <p className="font-medium">₦100,000</p>
+                      <p className="font-medium">₦1,000</p>
                     </div>
                   </div>
                   <div className=" flex items-center justify-between my-2">
@@ -83,7 +86,7 @@ const Checkout = () => {
                       <p>Delivery</p>
                     </div>
                     <div>
-                      <p className="font-medium">₦10,000</p>
+                      <p className="font-medium">₦00.00</p>
                     </div>
                   </div>
                   <div className=" flex items-center justify-between my-2">
@@ -91,7 +94,7 @@ const Checkout = () => {
                       <p>Total</p>
                     </div>
                     <div>
-                      <p className="font-bold">₦1,000,000</p>
+                      <p className="font-bold">₦1,000</p>
                     </div>
                   </div>
                 </div>
