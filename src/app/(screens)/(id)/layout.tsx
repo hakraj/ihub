@@ -1,6 +1,6 @@
 import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/navigation/NavigationBar";
-import styles from "../../../styles.module.css"
+import styles from "../../styles.module.css"
 
 
 export default function AuthLayout({

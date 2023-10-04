@@ -2,7 +2,7 @@
 'use client'
 
 import Link from "next/link";
-import styles from "../../../styles.module.css"
+import styles from "../../../../styles.module.css"
 import products from "@lib/products";
 import { useRouter } from "next/navigation";
 import useCartStore from '../../../../store/cart';
