@@ -1,12 +1,31 @@
 'use client'
 
-import { useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import products, { shuffleArray } from "@lib/products";
 import Product from "../products/Product";
 import Category from "./Category";
+import { setActive } from "@material-tailwind/react/components/Tabs/TabsContext";
 
 const StoreFront = () => {
   const [query, setQuery] = useState("All");
+  const searchParams = useSearchParams()
+  const search = searchParams.get('category')
+
+  useEffect(() => {
+
+    const setCategory = (category: SetStateAction<string>) => {
+      setQuery(category)
+    }
+    // Initial check on component mount
+    if (search !== null || undefined || "") {
+      setCategory(search as string);
+    }
+
+  }, [search]);
+
+
+
 
   const filterProducts = () => {
     if (query === "All") {

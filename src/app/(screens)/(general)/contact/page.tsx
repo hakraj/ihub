@@ -1,5 +1,5 @@
-import Footer from "../../components/Footer";
-import NavBar from "../../components/navigation/NavigationBar";
+import Footer from "@/app/components/Footer";
+import NavBar from "@/app/components/navigation/NavigationBar";
 
 
 const ContactPage = () => {

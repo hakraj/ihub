@@ -30,7 +30,7 @@ export default function HomeCarousel() {
                 Style redefined, confidence rewritten
               </Typography>
               <div className="flex justify-center gap-2">
-                <Link href="/shop"><Button size="lg" color="white">
+                <Link href="/shop?category=clothing"><Button size="lg" color="white">
                   Explore
                 </Button></Link>
               </div>
@@ -61,7 +61,7 @@ export default function HomeCarousel() {
                 Innovate your world, the tech way
               </Typography>
               <div className="flex justify-end gap-2">
-                <Link href="/shop"><Button size="lg" color="white">
+                <Link href="/shop?category=tech"><Button size="lg" color="white">
                   Explore
                 </Button></Link>
               </div>
@@ -92,7 +92,7 @@ export default function HomeCarousel() {
                 Home sweet home, now sweeter
               </Typography>
               <div className="flex gap-2">
-                <Link href="/shop"><Button size="lg" color="white">
+                <Link href="/shop?category=home"><Button size="lg" color="white">
                   Explore
                 </Button></Link>
               </div>
@@ -154,7 +154,7 @@ export default function HomeCarousel() {
                 Glow inside and out, naturally
               </Typography>
               <div className="flex justify-center gap-2">
-                <Link href="/shop"><Button size="lg" color="white">
+                <Link href="/shop?category=beauty"><Button size="lg" color="white">
                   Explore
                 </Button></Link>
               </div>

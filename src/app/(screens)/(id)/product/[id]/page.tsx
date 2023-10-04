@@ -4,10 +4,8 @@
 import Link from "next/link";
 import styles from "../../../styles.module.css"
 import products from "@lib/products";
-import Footer from "../../../components/Footer";
-import NavBar from "../../../components/navigation/NavigationBar";
 import { useRouter } from "next/navigation";
-import useCartStore from '../../../store/cart';
+import useCartStore from '../../../../store/cart';
 import Similar from "@/app/components/products/Similar";
 import { year } from "@/app/layout";
 import { useState } from "react";
@@ -30,10 +28,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
   const prod = products.filter((product) => `${product.id}` === params.id)
 
   return (
-    <main>
-      <div className={`${styles.hidelg}`}>
-        <NavBar />
-      </div>
+    <>
       <div className="lg:grid lg:px-[10%] lg:pt-16 grid-cols-2 lg:gap-8">
         <div>
           <div className="relative w-full h-[256px] lg:h-[384px] mb-8 lg:mb-16">
@@ -141,10 +136,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
       <div className={`${styles.hidelg} px-[10%] `}>
         <Similar category={prod[0].category} />
       </div>
-      <div className={`${styles.hidelg}`}>
-        <Footer />
-      </div>
-    </main>
+    </>
   );
 };
 

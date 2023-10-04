@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/navigation/NavigationBar";
-import Pitch from "../../components/Pitch";
+import Footer from "@/app/components/Footer";
+import NavBar from "@/app/components/navigation/NavigationBar";
+import Pitch from "@/app/components/Pitch";
 
 
 const AboutPage = () => {
