@@ -16,7 +16,7 @@ const CheckoutProduct = ({ id, quantity, checked }: { id: number, quantity: numb
   const { title, price } = prod[0];
 
   return (
-    <div className="rounded-xl shadow-lg hover:shadow-[#E4A0F7] p-2 my-4">
+    <div className="rounded-xl shadow-lg active:shadow-[#E4A0F7] p-2 my-4">
       <input className="m-1 mb-2 w-5 h-5 rounded" checked={checked} type="checkbox" onChange={() => toggleCheckProduct(id)} />
       <div className="flex items-center gap-4">
         <div className="relative min-w-[64px] h-[64px]">

@@ -54,7 +54,7 @@ const MoreInfo = () => {
           <input onChange={handleChange} className="block w-full my-2 mb-4 px-4 py-4 rounded-lg  font-light text-sm border border-[#D7BFDC] focus:outline-[#E4A0F7]" type="text" name="lname" id="lNameInput" placeholder="e.g Doe" />
           <label className="font-medium text-sm text-blue-gray-700" htmlFor="#phoneInput">Phone Number</label>
           <input onChange={handleChange} className="block w-full my-2 mb-4 px-4 py-4 rounded-lg  font-light text-sm border border-[#D7BFDC] focus:outline-[#E4A0F7]" type="text" name="phone" id="phoneInput" placeholder="e.g 0123-456-7890" inputMode="numeric" />
-          <button className="block w-full my-4 mt-8 p-4 text-center font-medium text-base text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Continue</button>
+          <button className="block w-full my-4 mt-8 p-4 text-center font-medium text-base text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Continue</button>
         </form>
       </Onboarding>
     </IsAuth>

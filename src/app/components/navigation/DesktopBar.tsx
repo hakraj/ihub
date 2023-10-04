@@ -22,8 +22,8 @@ const DesktopBar = ({ page }: { page?: string }) => {
                 </>
                 :
                 <>
-                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>home</span>
-                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 active:text-black`}>home</span>
+                  <div className={`w-1/2 active:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
                 </>
               }
             </Link>
@@ -37,8 +37,8 @@ const DesktopBar = ({ page }: { page?: string }) => {
                 </>
                 :
                 <>
-                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>shop</span>
-                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 active:text-black`}>shop</span>
+                  <div className={`w-1/2 active:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
                 </>
               }
             </Link>
@@ -46,7 +46,7 @@ const DesktopBar = ({ page }: { page?: string }) => {
           <div>
             <Link href={"/"}>
               <span className={`${styles.link} cursor-pointer text-gray-600 `}>my store</span>
-              <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+              <div className={`w-1/2 active:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
             </Link>
           </div>
           <div>
@@ -58,8 +58,8 @@ const DesktopBar = ({ page }: { page?: string }) => {
                 </>
                 :
                 <>
-                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>about</span>
-                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 active:text-black`}>about</span>
+                  <div className={`w-1/2 active:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
                 </>
               }
             </Link>
@@ -73,8 +73,8 @@ const DesktopBar = ({ page }: { page?: string }) => {
                 </>
                 :
                 <>
-                  <span className={`${styles.link} cursor-pointer text-gray-600 hover:text-black`}>contact</span>
-                  <div className={`w-1/2 hover:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
+                  <span className={`${styles.link} cursor-pointer text-gray-600 active:text-black`}>contact</span>
+                  <div className={`w-1/2 active:w-full mx-auto h-[2px] ${styles.animateGradient}`} ></div>
                 </>
               }
             </Link>

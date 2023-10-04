@@ -19,7 +19,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
 
   const addToCart = () => {
     addProduct({
-      productId: Number(params.id),
+      id: Number(params.id),
       quantity: quantity,
       checked: true
     })
@@ -35,14 +35,14 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
             <img className="h-full w-full object-cover lg:rounded-lg" src={`/tinified-min/${prod[0].id}-min.jpg`} alt="qoute-tet-img" fetchPriority="high" />
             <div className="px-6 md:px-8 py-4 flex-1 absolute w-full top-0 right-0">
               <div className="flex items-center justify-between">
-                <div onClick={() => router.back()} className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
+                <div onClick={() => router.back()} className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 active:bg-black/50">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                   </svg>
                 </div>
                 <div className="flex items-center gap-4 justify-between">
                   <Link href="/">
-                    <div className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
+                    <div className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 active:bg-black/50">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                       </svg>
@@ -50,7 +50,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
                   </Link>
                   <Link href="/cart">
 
-                    <div className="relative w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 hover:bg-black/50">
+                    <div className="relative w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 active:bg-black/50">
 
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="text-white w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
@@ -126,7 +126,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
                 <button onClick={() => { setQuantity(prev => prev + 1) }} className="w-8 h-8 rounded-lg border border-[#8F00FF] text-xl text-[#8F00FF]">+</button>
               </div>
               <div className="w-2/3">
-                <button onClick={addToCart} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] hover:bg-[#AF69EE] rounded-lg">Add to cart</button>
+                <button onClick={addToCart} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Add to cart</button>
               </div>
             </div>
           </div>
