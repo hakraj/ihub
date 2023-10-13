@@ -1,11 +1,9 @@
 'use client'
 
-import styles from "../../styles.module.css"
-import Footer from "@/app/components/Footer";
-import NavBar from "@/app/components/navigation/NavigationBar";
 import { useRouter } from "next/navigation";
-import useCartStore from '../../../store/cart';
+import useCartStore from '../../../../store/cart';
 import products from "@lib/products";
+import { checkout } from "../../../../../../utils/checkout";
 
 const Detail = ({ id, quantity }: { id: number, quantity: number }) => {
 
@@ -33,6 +31,11 @@ const Checkout = () => {
   const cart = useCartStore((state) => state.cart);
 
   const checkedProducts = (cart).filter(product => product.checked)
+  const line_items = [{
+    price: "price_1O0L9sLZkBScDmXvwhGmB1LQ",
+    quantity: checkedProducts[0].quantity
+  }]
+
   return (
     <div>
       <div className="lg:relative lg:px-[10%] lg:pt-16">
@@ -104,7 +107,7 @@ const Checkout = () => {
             <div className="pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
               <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
               <div className="px-6 md:px-8 lg:px-[10%]">
-                <button className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
+                <button onClick={() => checkout({ line_items })} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
               </div>
             </div>
           </>

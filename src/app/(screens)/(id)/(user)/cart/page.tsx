@@ -5,7 +5,7 @@ import Footer from "@/app/components/Footer";
 import NavBar from "@/app/components/navigation/NavigationBar";
 import CheckoutProduct from "@/app/components/products/CheckoutProduct";
 import { useRouter } from "next/navigation";
-import useCartStore from '../../../store/cart';
+import useCartStore from '../../../../store/cart';
 
 
 const Cart = () => {
