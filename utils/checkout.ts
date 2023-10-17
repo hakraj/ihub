@@ -15,7 +15,8 @@ export const checkout = async ({ line_items }: { line_items: { price: string; qu
 
   await stripe?.redirectToCheckout({
     mode: "payment",
-    line_items,
+    //@ts-ignore
+    line_items: line_items,
     success_url: `${window.location.origin}/result?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${window.location.origin}`,
   })
