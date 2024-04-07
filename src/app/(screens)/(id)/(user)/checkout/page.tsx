@@ -1,9 +1,10 @@
 'use client'
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import useCartStore from '../../../../store/cart';
 import products from "@lib/products";
-import { checkout } from "../../../../../../utils/checkout";
+import { MouseEventHandler } from "react";
 
 const Detail = ({ id, quantity }: { id: number, quantity: number }) => {
 
@@ -31,11 +32,15 @@ const Checkout = () => {
   const cart = useCartStore((state) => state.cart);
 
   const checkedProducts = (cart).filter(product => product.checked)
-  const line_items = [{
-    price: "price_1O0L9sLZkBScDmXvwhGmB1LQ",
-    quantity: checkedProducts[0].quantity
-  }]
 
+  const handleCheckout: MouseEventHandler<HTMLButtonElement> = async () => {
+    try {
+
+    } catch (error) {
+      console.log(error);
+      alert("An error occured, please try again",)
+    }
+  }
   return (
     <div>
       <div className="lg:relative lg:px-[10%] lg:pt-16">
@@ -56,7 +61,7 @@ const Checkout = () => {
         </div>
         {cart.length === 0 ?
           <div className="m-auto my-16">
-            {/* <Image className="mx-auto" src={"/auth/not-found.jpg"} alt={"not-found-vector-image"} width={192} height={192} priority /> */}
+            <Image className="mx-auto" src={"/auth/empty-cart.jpg"} alt={"empty-cart-vector-image"} width={192} height={192} priority />
             <h1 className=" text-center">No items have been added to cart.</h1>
             <button onClick={() => router.push("/shop")} className="block w-1/2 mx-auto my-4 py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Explore Products</button>
           </div>
@@ -107,7 +112,7 @@ const Checkout = () => {
             <div className="pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
               <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
               <div className="px-6 md:px-8 lg:px-[10%]">
-                <button onClick={() => checkout({ line_items })} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
+                <button onClick={handleCheckout} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
               </div>
             </div>
           </>

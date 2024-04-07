@@ -1,8 +1,6 @@
 'use client'
 
-import styles from "../../styles.module.css"
-import Footer from "@/app/components/Footer";
-import NavBar from "@/app/components/navigation/NavigationBar";
+import Image from "next/image";
 import CheckoutProduct from "@/app/components/products/CheckoutProduct";
 import { useRouter } from "next/navigation";
 import useCartStore from '../../../../store/cart';
@@ -32,7 +30,7 @@ const Cart = () => {
         </div>
         {cart.length === 0 ?
           <div className="m-auto my-16">
-            {/* <Image className="mx-auto" src={"/auth/not-found.jpg"} alt={"not-found-vector-image"} width={192} height={192} priority /> */}
+            <Image className="mx-auto" src={"/auth/empty-cart.jpg"} alt={"empty-cart-vector-image"} width={192} height={192} priority />
             <h1 className=" text-center">No items have been added to cart.</h1>
             <button onClick={() => router.push("/shop")} className="block w-1/2 mx-auto my-4 py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Explore Products</button>
           </div>

@@ -27,6 +27,12 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
 
   const prod = products.filter((product) => `${product.id}` === params.id)
 
+  const existProduct = cart.find((product) => `${product.id}` === params.id)
+
+  if (existProduct) {
+    setQuantity(existProduct.quantity)
+  }
+
   return (
     <>
       <div className="lg:grid lg:px-[10%] lg:pt-16 grid-cols-2 lg:gap-8">
