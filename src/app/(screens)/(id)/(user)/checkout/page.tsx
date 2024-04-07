@@ -38,7 +38,7 @@ const Checkout = () => {
   const checkedProducts = (cart).filter(product => product.checked)
 
   const config = {
-    // reference: (new Date()).getTime().toString(),
+    reference: (new Date()).getTime().toString(),
     email: session?.user?.email as string,
     amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: process.env.PAYSTACK_PUBLIC_KEY as string,
