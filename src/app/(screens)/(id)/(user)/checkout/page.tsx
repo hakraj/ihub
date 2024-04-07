@@ -5,6 +5,8 @@ import Image from "next/image";
 import useCartStore from '../../../../store/cart';
 import products from "@lib/products";
 import { MouseEventHandler } from "react";
+import { usePaystackPayment } from "react-paystack";
+import { useSession } from "next-auth/react";
 
 const Detail = ({ id, quantity }: { id: number, quantity: number }) => {
 
@@ -31,11 +33,32 @@ const Checkout = () => {
   const router = useRouter();
   const cart = useCartStore((state) => state.cart);
 
+  const { data: session, status } = useSession();
+
   const checkedProducts = (cart).filter(product => product.checked)
+
+  const config = {
+    // reference: (new Date()).getTime().toString(),
+    email: session?.user?.email as string,
+    amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: process.env.PAYSTACK_PUBLIC_KEY as string,
+  };
+
+  const onSuccess = (reference: string) => {
+    // Implementation for whatever you want to do with reference and after success call.
+    console.log(reference);
+  };
+
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log('closed')
+  }
+
 
   const handleCheckout: MouseEventHandler<HTMLButtonElement> = async () => {
     try {
-
+      const initializePayment = usePaystackPayment(config);
+      initializePayment({ onSuccess, onClose })
     } catch (error) {
       console.log(error);
       alert("An error occured, please try again",)
