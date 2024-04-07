@@ -41,7 +41,7 @@ const Checkout = () => {
     reference: (new Date()).getTime().toString(),
     email: session?.user?.email as string,
     amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
-    publicKey: process.env.PAYSTACK_PUBLIC_KEY as string,
+    publicKey: 'pk_test_b4a3cf9ae25d0a3905b382d07afb28b029bbbfb8',
   };
 
   const initializePayment = usePaystackPayment(config);
