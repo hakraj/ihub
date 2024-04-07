@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import useCartStore from '../../../../store/cart';
 import Similar from "@/app/components/products/Similar";
 import { year } from "@/app/layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const ProductPage = ({ params }: { params: { id: string } }) => {
@@ -16,6 +16,14 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
   const addProduct = useCartStore((state) => state.addProduct);
   const router = useRouter();
   const [quantity, setQuantity] = useState<number>(1)
+
+  useEffect(() => {
+    const existProduct = cart.find((product) => `${product.id}` === params.id)
+
+    if (existProduct) {
+      setQuantity(existProduct.quantity)
+    }
+  }, [])
 
   const addToCart = () => {
     addProduct({
@@ -26,12 +34,6 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
   }
 
   const prod = products.filter((product) => `${product.id}` === params.id)
-
-  const existProduct = cart.find((product) => `${product.id}` === params.id)
-
-  if (existProduct) {
-    setQuantity(existProduct.quantity)
-  }
 
   return (
     <>
