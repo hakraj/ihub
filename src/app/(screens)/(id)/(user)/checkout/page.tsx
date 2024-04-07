@@ -128,7 +128,10 @@ const Checkout = () => {
             <div className="pb-4 w-full bg-white fixed lg:absolute bottom-0 left-0">
               <hr className="text-[#D7BFDC] h-[2px] w-full mb-4" />
               <div className="px-6 md:px-8 lg:px-[10%]">
-                <button onClick={() => initializePayment({ onSuccess, onClose })} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
+                <button onClick={() => {
+                  console.log(config);
+                  initializePayment({ onSuccess, onClose })
+                }} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
               </div>
             </div>
           </>
