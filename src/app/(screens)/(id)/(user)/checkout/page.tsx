@@ -44,6 +44,8 @@ const Checkout = () => {
     publicKey: process.env.PAYSTACK_PUBLIC_KEY as string,
   };
 
+  const initializePayment = usePaystackPayment(config);
+
   const onSuccess = (reference: string) => {
     // Implementation for whatever you want to do with reference and after success call.
     console.log(reference);
@@ -57,7 +59,6 @@ const Checkout = () => {
 
   const handleCheckout: MouseEventHandler<HTMLButtonElement> = async () => {
     try {
-      const initializePayment = usePaystackPayment(config);
       initializePayment({ onSuccess, onClose })
     } catch (error) {
       console.log(error);
