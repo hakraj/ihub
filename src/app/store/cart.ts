@@ -14,6 +14,7 @@ interface Store {
   setProductQuantity: (id: number, no: number) => void;
   toggleCheckProduct: (id: number) => void;
   deleteProduct: (id: number) => void;
+  clearCart: (ids: number[]) => void;
 }
 
 
@@ -51,6 +52,11 @@ const useCartStore = create<Store>()(
             cart: state.cart.filter((product) => product.id !== id)
           }))
         },
+        clearCart: (ids) => {
+          set((state) => ({
+            cart: state.cart.filter((product) => !ids.includes(product.id))
+          }))
+        }
       })
       ,
       { name: "cart" })

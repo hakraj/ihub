@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import useCartStore from '../../../../store/cart';
 import products from "@lib/products";
-import { MouseEventHandler } from "react";
 import { usePaystackPayment } from "react-paystack";
 import { useSession } from "next-auth/react";
 
@@ -32,6 +31,7 @@ const Detail = ({ id, quantity }: { id: number, quantity: number }) => {
 const Checkout = () => {
   const router = useRouter();
   const cart = useCartStore((state) => state.cart);
+  const clearCart = useCartStore((state) => state.clearCart);
 
   const { data: session, status } = useSession();
 
@@ -42,6 +42,21 @@ const Checkout = () => {
     email: session?.user?.email as string,
     amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: 'pk_test_b4a3cf9ae25d0a3905b382d07afb28b029bbbfb8',
+    metadata: {
+      custom_fields: [
+        {
+          display_name: 'name',
+          variable_name: 'name',
+          value: session?.user?.name
+        },
+        {
+          display_name: 'order',
+          variable_name: 'order',
+          value: checkedProducts
+        }
+        // To pass extra metadata, add an object with the same fields as above
+      ]
+    }
   };
 
   const initializePayment = usePaystackPayment(config);
@@ -49,6 +64,8 @@ const Checkout = () => {
   const onSuccess = (reference: string) => {
     // Implementation for whatever you want to do with reference and after success call.
     console.log(reference);
+    const checkedProductsIds = checkedProducts.map(product => product.id)
+    clearCart(checkedProductsIds);
   };
 
   const onClose = () => {
