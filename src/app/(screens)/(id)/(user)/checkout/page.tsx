@@ -61,7 +61,9 @@ const Checkout = () => {
 
   const initializePayment = usePaystackPayment(config);
 
-  const onSuccess = (reference: string) => {
+  const onSuccess = (reference: any) => {
+    console.log(reference);
+
     // Implementation for whatever you want to do with reference and after success call.
     fetch(`/api/users/checkout/${reference}`)
       .then(response => response.json())
