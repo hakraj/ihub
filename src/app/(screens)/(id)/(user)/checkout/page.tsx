@@ -69,7 +69,7 @@ const Checkout = () => {
     fetch(`/api/users/checkout/${reference.reference}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        console.log(data?.data?.amount, config.amount);
         if (data?.data?.amount === config.amount) {
           setPaymentSuccess(true)
           const checkedProductsIds = checkedProducts.map(product => product.id)
