@@ -14,6 +14,8 @@ export async function GET(req: Request, { params }: { params: { reference: strin
         }
       })
 
+    console.log(res);
+
     if (!res.ok) {
       return NextResponse.json({ success: false, error: res.status })
     }
