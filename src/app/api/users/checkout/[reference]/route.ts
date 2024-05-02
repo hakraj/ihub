@@ -7,7 +7,7 @@ export async function GET(req: Request, { params }: { params: { reference: strin
       {
         method: "GET",
         headers: {
-          'Authorization': `Bearer ${process.env.PAYSTACK_SECRET_KEY}`
+          'authorization': `Bearer ${process.env.PAYSTACK_SECRET_KEY}`
           // Add other headers if needed
         }
       })
