@@ -6,6 +6,7 @@ import useCartStore from '../../../../store/cart';
 import products from "@lib/products";
 import { usePaystackPayment } from "react-paystack";
 import { useSession } from "next-auth/react";
+import { useState } from "react";
 
 const Detail = ({ id, quantity }: { id: number, quantity: number }) => {
 
@@ -32,6 +33,7 @@ const Checkout = () => {
   const router = useRouter();
   const cart = useCartStore((state) => state.cart);
   const clearCart = useCartStore((state) => state.clearCart);
+  const [paymentSuccess, setPaymentSuccess] = useState(false)
 
   const { data: session, status } = useSession();
 
@@ -68,15 +70,17 @@ const Checkout = () => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
+        if (data?.data?.amount === config.amount) {
+          setPaymentSuccess(true)
+          const checkedProductsIds = checkedProducts.map(product => product.id)
+          clearCart(checkedProductsIds);
+        }
 
       })
       .catch(error => {
         console.log('Error:', error);
 
       })
-
-    const checkedProductsIds = checkedProducts.map(product => product.id)
-    clearCart(checkedProductsIds);
   };
 
   const onClose = () => {
@@ -106,7 +110,7 @@ const Checkout = () => {
         {checkedProducts.length === 0 ?
           <div className="m-auto my-16">
             <Image className="mx-auto" src={"/auth/empty-cart.jpg"} alt={"empty-cart-vector-image"} width={192} height={192} priority />
-            <h1 className=" text-center">No items have been added to cart.</h1>
+            <h1 className=" text-center">{paymentSuccess ? "Your payment test has been confirmed" : "No items have been added to cart."}</h1>
             <button onClick={() => router.push("/shop")} className="block w-1/2 mx-auto my-4 py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Explore Products</button>
           </div>
           :
