@@ -38,7 +38,7 @@ const Checkout = () => {
   const checkedProducts = (cart).filter(product => product.checked)
 
   const config = {
-    reference: (new Date()).getTime().toString(),
+    // reference: (new Date()).getTime().toString(),
     email: session?.user?.email as string,
     amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: 'pk_test_b4a3cf9ae25d0a3905b382d07afb28b029bbbfb8',
@@ -63,7 +63,17 @@ const Checkout = () => {
 
   const onSuccess = (reference: string) => {
     // Implementation for whatever you want to do with reference and after success call.
-    console.log(reference);
+    fetch(`/api/users/checkout/${reference}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+
+      })
+      .catch(error => {
+        console.log('Error:', error);
+
+      })
+
     const checkedProductsIds = checkedProducts.map(product => product.id)
     clearCart(checkedProductsIds);
   };
@@ -92,7 +102,7 @@ const Checkout = () => {
           </div>
           <hr className="text-[#D7BFDC] h-[2px] w-full my-2" />
         </div>
-        {cart.length === 0 ?
+        {checkedProducts.length === 0 ?
           <div className="m-auto my-16">
             <Image className="mx-auto" src={"/auth/empty-cart.jpg"} alt={"empty-cart-vector-image"} width={192} height={192} priority />
             <h1 className=" text-center">No items have been added to cart.</h1>
