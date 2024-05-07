@@ -11,6 +11,8 @@ const StoreFront = () => {
   const [query, setQuery] = useState("All");
   const searchParams = useSearchParams()
   const search = searchParams.get('category')
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20
 
   useEffect(() => {
 
@@ -24,9 +26,6 @@ const StoreFront = () => {
 
   }, [search]);
 
-
-
-
   const filterProducts = () => {
     if (query === "All") {
       return products
@@ -37,11 +36,15 @@ const StoreFront = () => {
 
   const prod = filterProducts()
 
+  const totalPages = Math.ceil(prod.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
   const shuffleProducts = shuffleArray([...prod])
+
   return (
     <>
       <Category active={query} setActive={setQuery} />
-
       <div className="px-6 md:px-8 py-4 mb-8">
         <div className="w-full flex items-center justify-between mb-4">
           <div>
@@ -55,7 +58,14 @@ const StoreFront = () => {
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-          {shuffleProducts.slice(-prod.length).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)}
+          {shuffleProducts.slice(startIndex, endIndex).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)}
+        </div>
+        <div>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button key={index} onClick={() => setCurrentPage(index + 1)}>
+              {index + 1}
+            </button>
+          ))}
         </div>
       </div>
     </>

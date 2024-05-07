@@ -120,7 +120,7 @@ const Checkout = () => {
         {checkedProducts.length === 0 ?
           <div className="m-auto my-16">
             <Image className="mx-auto" src={"/auth/empty-cart.jpg"} alt={"empty-cart-vector-image"} width={192} height={192} priority />
-            <h1 className=" text-center">{paymentSuccess ? "Your payment test has been confirmed" : "No items have been added to cart."}</h1>
+            <h1 className=" text-center">{paymentSuccess ? "Your test payment has been confirmed" : "No items have been added to cart."}</h1>
             <button onClick={() => router.push("/shop")} className="block w-1/2 mx-auto my-4 py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Explore Products</button>
           </div>
           :
