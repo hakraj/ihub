@@ -21,7 +21,7 @@ const Product = ({ id, title, price }: { id: number, title: string, price: strin
   return (
     <div onClick={() => router.push(`/product/${id}`)} className="rounded-xl shadow-lg active:shadow-[#E4A0F7] p-2 flex justify-between flex-col">
       <div className="relative w-full h-[192px] sm:h-[256px] mb-2 lg:mb-4">
-        <img loading="lazy" className="h-full w-full object-cover rounded-lg" src={`https://res.cloudinary.com/dj55g1hdn/image/upload/v1715035177/tinified-min/${id}-min.jpg`} alt={`product-${id}-img`} />
+        <img className="h-full w-full object-cover rounded-lg" src={`https://res.cloudinary.com/dj55g1hdn/image/upload/v1715035177/tinified-min/${id}-min.jpg`} alt={`product-${id}-img`} />
       </div>
       <div>
         <p className="text-sm md:text-base font-light">{title && title.length > 32 ? title.substring(0, 27) + " ..." : title}</p>

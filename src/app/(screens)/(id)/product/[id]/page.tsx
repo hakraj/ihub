@@ -40,7 +40,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
       <div className="lg:grid lg:px-[10%] lg:pt-16 grid-cols-2 lg:gap-8">
         <div>
           <div className="relative w-full h-[256px] lg:h-[384px] mb-8 lg:mb-16">
-            <img className="h-full w-full object-cover lg:rounded-lg" src={`/tinified-min/${prod[0].id}-min.jpg`} alt="qoute-tet-img" fetchPriority="high" />
+            <img className="h-full w-full object-cover lg:rounded-lg" src={`https://res.cloudinary.com/dj55g1hdn/image/upload/v1715035177/tinified-min/${prod[0].id}-min.jpg`} alt={`product-${id}-img`} fetchPriority="high" />
             <div className="px-6 md:px-8 py-4 flex-1 absolute w-full top-0 right-0">
               <div className="flex items-center justify-between">
                 <div onClick={() => router.back()} className="w-8 h-8 rounded-[100%] flex items-center justify-center bg-black/75 active:bg-black/50">

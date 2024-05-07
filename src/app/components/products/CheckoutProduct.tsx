@@ -20,7 +20,7 @@ const CheckoutProduct = ({ id, quantity, checked }: { id: number, quantity: numb
       <input className="m-1 mb-2 w-5 h-5 rounded" checked={checked} type="checkbox" onChange={() => toggleCheckProduct(id)} />
       <div className="flex items-center gap-4">
         <div className="relative min-w-[64px] h-[64px]">
-          <img className="h-full w-full object-cover rounded-lg" src={`/tinified-min/${id}-min.jpg`} alt="qoute-tet-img" />
+          <img className="h-full w-full object-cover rounded-lg" src={`https://res.cloudinary.com/dj55g1hdn/image/upload/v1715035177/tinified-min/${id}-min.jpg`} alt={`product-${id}-img`} />
         </div>
         <div>
           <p className="text-lg mt-1">{title && title.length > 48 ? title.substring(0, 43) + " ..." : title}</p>

@@ -32,7 +32,7 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/auth/login/",
+    signIn: "/auth/cart/",
     signOut: "/auth/login/",
     error: '/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify/', // (used for check email message)
