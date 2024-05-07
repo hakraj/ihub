@@ -1,18 +1,39 @@
 'use client'
 
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import products, { shuffleArray } from "@lib/products";
 import Product from "../products/Product";
 import Category from "./Category";
-import { setActive } from "@material-tailwind/react/components/Tabs/TabsContext";
+
+const RenderProduct = ({ products }: { products: any[] }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
+
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
+        {products.slice(startIndex, endIndex).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)}
+      </div>
+      <div>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button key={index} onClick={() => setCurrentPage(index + 1)} className={`p-1 rounded-md text-lg border ${currentPage === (index + 1) ? "border-[#8F00FF] text-[#8F00FF]" : "border-[#D7BFDC] text-[#D7BFDC]"}`}>{index + 1}</button>
+        ))}
+      </div>
+
+    </>
+  )
+}
 
 const StoreFront = () => {
   const [query, setQuery] = useState("All");
   const searchParams = useSearchParams()
   const search = searchParams.get('category')
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20
 
   useEffect(() => {
 
@@ -36,10 +57,6 @@ const StoreFront = () => {
 
   const prod = filterProducts()
 
-  const totalPages = Math.ceil(prod.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
   const shuffleProducts = shuffleArray([...prod])
 
   return (
@@ -56,16 +73,7 @@ const StoreFront = () => {
             </svg>
             <p className="text-sm lg:text-base">Latest</p>
           </div>
-        </div>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
-          {shuffleProducts.slice(startIndex, endIndex).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)}
-        </div>
-        <div>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button key={index} onClick={() => setCurrentPage(index + 1)}>
-              {index + 1}
-            </button>
-          ))}
+          <RenderProduct products={shuffleProducts} />
         </div>
       </div>
     </>
