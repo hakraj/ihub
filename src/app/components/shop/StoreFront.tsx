@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import products, { shuffleArray } from "@lib/products";
 import Product from "../products/Product";
