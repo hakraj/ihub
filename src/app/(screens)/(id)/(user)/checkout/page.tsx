@@ -34,15 +34,23 @@ const Checkout = () => {
   const cart = useCartStore((state) => state.cart);
   const clearCart = useCartStore((state) => state.clearCart);
   const [paymentSuccess, setPaymentSuccess] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const { data: session, status } = useSession();
 
   const checkedProducts = (cart).filter(product => product.checked)
 
+  const subTotal = checkedProducts.reduce((acc, item) => {
+    const prod = products.filter((product) => product.id === item.id)
+    const cost = (parseInt(prod[0].price.replace(/,/g, ''), 10) * item.quantity)
+
+    return acc + cost
+  }, 0)
+
   const config = {
     // reference: (new Date()).getTime().toString(),
     email: session?.user?.email as string,
-    amount: 10000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    amount: (subTotal + 1000) * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
     publicKey: 'pk_test_b4a3cf9ae25d0a3905b382d07afb28b029bbbfb8',
     metadata: {
       custom_fields: [
@@ -64,13 +72,13 @@ const Checkout = () => {
   const initializePayment = usePaystackPayment(config);
 
   const onSuccess = (reference: { reference: any; }) => {
-
+    setLoading(true)
     // Implementation for whatever you want to do with reference and after success call.
     fetch(`/api/users/checkout/${reference.reference}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data.data.amount, config.amount);
-        if (data?.data?.amount === config.amount) {
+        if (data.data.data.amount === config.amount) {
+          setLoading(false)
           setPaymentSuccess(true)
           const checkedProductsIds = checkedProducts.map(product => product.id)
           clearCart(checkedProductsIds);
@@ -78,6 +86,8 @@ const Checkout = () => {
 
       })
       .catch(error => {
+        setLoading(false)
+        setPaymentSuccess(false)
         console.log('Error:', error);
 
       })
@@ -134,7 +144,7 @@ const Checkout = () => {
                       <p>Sub total</p>
                     </div>
                     <div>
-                      <p className="font-medium">₦1,000</p>
+                      <p className="font-medium">₦{subTotal.toLocaleString()}</p>
                     </div>
                   </div>
                   <div className=" flex items-center justify-between my-2">
@@ -142,7 +152,7 @@ const Checkout = () => {
                       <p>Delivery</p>
                     </div>
                     <div>
-                      <p className="font-medium">₦00.00</p>
+                      <p className="font-medium">₦1000.00</p>
                     </div>
                   </div>
                   <div className=" flex items-center justify-between my-2">
@@ -150,7 +160,7 @@ const Checkout = () => {
                       <p>Total</p>
                     </div>
                     <div>
-                      <p className="font-bold">₦1,000</p>
+                      <p className="font-bold">₦{(subTotal + 1000).toLocaleString()}</p>
                     </div>
                   </div>
                 </div>
@@ -163,7 +173,14 @@ const Checkout = () => {
                 <button onClick={() => {
                   console.log(config);
                   initializePayment({ onSuccess, onClose })
-                }} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">Proceed to Payment</button>
+                }} className="block w-full py-3 text-center text-xl font-medium text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-lg">
+                  {
+                    loading ?
+                      <div className="w-5 h-5 rounded-full animate-spin border-2 border-solid border-white border-t-[#8F00FF] shadow-md mx-auto my-1"></div>
+                      :
+                      "Proceed to Payment"
+                  }
+                </button>
               </div>
             </div>
           </>
