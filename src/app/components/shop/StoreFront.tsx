@@ -20,8 +20,8 @@ const RenderProduct = ({ products }: { products: any[] }) => {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8 xl:grid-cols-5">
         {products.slice(startIndex, endIndex).map(({ id, title, price }) => <Product id={id} key={id} title={title} price={price} />)}
       </div>
-      <div className=" flex justify-end gap-1 mt-4">
-        <span className="text-sm lg:text-base">Pages</span>
+      <div className=" flex justify-end gap-1 mt-4 mr-2">
+        <span className="text-sm lg:text-base mr-2" >Pages</span>
         {Array.from({ length: totalPages }, (_, index) => (
           <button key={index} onClick={() => setCurrentPage(index + 1)} className={`px-1 rounded-md border ${currentPage === (index + 1) ? "border-[#8F00FF] text-[#8F00FF]" : "border-[#D7BFDC] text-[#D7BFDC]"}`}>{index + 1}</button>
         ))}

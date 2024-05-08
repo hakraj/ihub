@@ -23,7 +23,7 @@ const ProductPage = ({ params }: { params: { id: string } }) => {
     if (existProduct) {
       setQuantity(existProduct.quantity)
     }
-  }, [])
+  }, [cart, params.id])
 
   const addToCart = () => {
     addProduct({

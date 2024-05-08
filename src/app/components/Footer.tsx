@@ -21,7 +21,7 @@ const Footer = () => {
             <p className="text-2xl font-bold">Newsletter sign up</p>
             <p className="my-2 text-sm font-light text-violet-300">Sign up for our promotional email and be the first to know of our special offers</p>
             <div className="w-full flex flex-wrap items-center gap-2 md:gap-4 ">
-              <input className="py-1 px-4 rounded-2xl font-light text-black text-sm border-2 border-[#D7BFDC] focus:outline-[#E4A0F7] focus:border-[#E4A0F7]" type="text" name="search" id="search" placeholder="type your search" />
+              <input className="py-1 px-4 rounded-2xl font-light text-black text-sm border-2 border-[#D7BFDC] focus:outline-[#E4A0F7] focus:border-[#E4A0F7]" type="email" name="email" id="email" placeholder="type your email" />
               <button className="py-1 px-4 text-center text-base text-white bg-[#8F00FF] active:bg-[#AF69EE] rounded-2xl">subscribe</button>
             </div>
           </div>
